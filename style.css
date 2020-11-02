@@ -1,0 +1,9 @@
+#grid-net {
+  display: grid;
+  grid-template-columns: repeat(16, 15px);
+  grid-template-rows: repeat(16, 15px)
+}
+
+.grid-item {
+  border: 1px solid black;
+}
