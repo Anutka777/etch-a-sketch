@@ -7,3 +7,7 @@
 .grid-item {
   border: 1px solid black;
 }
+
+.drawing {
+  background-color: black;
+}

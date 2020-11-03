@@ -9,6 +9,13 @@ for (i = 1; i <= gridItemCount; i++) {
 gridItemArray.forEach(function(el) {
   let gridItem = document.createElement('div');
   gridItem.className = 'grid-item'
-  gridItem.id = `grid-item ${el}`;
+  gridItem.id = `grid-item-${el}`;
   gridNet.appendChild(gridItem);
   });
+
+Array.from(document.getElementsByClassName('grid-item')).forEach(function(item) {
+  item.addEventListener('mouseenter', function(e) {
+    e.target.classList.add('drawing');
+  });
+});
+ 
