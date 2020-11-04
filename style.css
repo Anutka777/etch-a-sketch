@@ -1,13 +1,18 @@
 #grid-net {
   display: grid;
-  grid-template-columns: repeat(16, 15px);
-  grid-template-rows: repeat(16, 15px)
-}
-
-.grid-item {
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
   border: 1px solid black;
 }
 
+.grid-item {
+  border-bottom: 1px dotted black;
+}
+
+/* Class for black pen */
 .drawing {
   background-color: black;
 }
