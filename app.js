@@ -57,7 +57,7 @@ function reset() {
 function drawing() {
   Array.from(document.getElementsByClassName('grid-item')).forEach(function(item) {
     item.addEventListener('mouseenter', function(e) {
-      e.target.classList.add('drawing');
+      e.target.style.backgroundColor = 'black';
   });
 });
 }
