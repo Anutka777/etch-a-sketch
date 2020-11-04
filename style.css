@@ -1,13 +1,37 @@
+button {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 #grid-net {
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
+  /* grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr); */
   width: 500px;
   height: 500px;
   margin: 0 auto;
   border: 1px solid black;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .grid-item {
   border-bottom: 1px dotted black;
+}
+
+#reset {
+  display: block;
+  width: 150px;
+  height: 40px;
+  margin: 5px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  font-size: 20px;
+}
+
+#button-container {
+  display:flex;
+  justify-content: space-between;
+  width: 500px;
+  margin: 10px auto;
+}
+.options-button {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }

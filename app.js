@@ -1,4 +1,3 @@
-let hoverCount = 0;
 // Container for grid
 const gridNet = document.getElementById('grid-net');
 
@@ -17,7 +16,6 @@ colorPencil.addEventListener('click', pickPencil);
 
 function pickRainbow() {
   penColor = 'rainbow';
-  // randomRGB = Math.floor(Math.random() * 256);
 }
 
 function pickBlack() {
@@ -78,18 +76,26 @@ function reset() {
 
 // Change style of grid-item by hovering
 function drawing() {
+
+  // For pencil-case
+  let hoverCount = 0;
   Array.from(document.getElementsByClassName('grid-item')).forEach(function(item) {
     item.addEventListener('mouseenter', function(e) {
       if (penColor === 'pencil') {
+
+        // Assign black color with rgba(0,0,0,[add 0.1 with each step])
         hoverCount += 1;
         if (hoverCount === 10) {
           hoverCount = 0;
         }
         e.target.style.backgroundColor = `rgba(0, 0, 0, 0.${hoverCount})`;
-        console.log(hoverCount);
       } else if (penColor === 'rainbow') {
+
+        // Assign random color
         e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
       } else {
+
+        // Assign black color
         e.target.style.backgroundColor = 'black';
       }
   });
