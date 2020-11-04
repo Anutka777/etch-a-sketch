@@ -1,9 +1,32 @@
+let hoverCount = 0;
 // Container for grid
 const gridNet = document.getElementById('grid-net');
 
 // reset-button with event listener
 const resetBtn = document.getElementById('reset');
 resetBtn.addEventListener('click', reset);
+
+// Pick color buttons event listeners
+let penColor = 'black';
+colorBlack = document.getElementById('black');
+colorBlack.addEventListener('click', pickBlack);
+colorRainbow = document.getElementById('rainbow');
+colorRainbow.addEventListener('click', pickRainbow);
+colorPencil = document.getElementById('pencil');
+colorPencil.addEventListener('click', pickPencil);
+
+function pickRainbow() {
+  penColor = 'rainbow';
+  // randomRGB = Math.floor(Math.random() * 256);
+}
+
+function pickBlack() {
+  penColor = 'black';
+}
+
+function pickPencil() {
+  penColor = 'pencil';
+}
 
 // Make initial page layout
 let gridItemInOneLine = 16;
@@ -53,11 +76,24 @@ function reset() {
   }
 }
 
-// Change class of grid-item by hovering
+// Change style of grid-item by hovering
 function drawing() {
   Array.from(document.getElementsByClassName('grid-item')).forEach(function(item) {
     item.addEventListener('mouseenter', function(e) {
-      e.target.style.backgroundColor = 'black';
+      if (penColor === 'pencil') {
+        hoverCount += 1;
+        if (hoverCount === 10) {
+          hoverCount = 0;
+        }
+        e.target.style.backgroundColor = `rgba(0, 0, 0, 0.${hoverCount})`;
+        console.log(hoverCount);
+      } else if (penColor === 'rainbow') {
+        e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+      } else {
+        e.target.style.backgroundColor = 'black';
+      }
   });
 });
 }
+
+// TODO: Add rgba change only for one grid-item
