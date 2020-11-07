@@ -16,14 +16,17 @@ colorPencil.addEventListener('click', pickPencil);
 
 function pickRainbow() {
   penColor = 'rainbow';
+   document.querySelector('body').style.backgroundImage = 'linear-gradient(#9c4f96, #ff6355, #fba949, #fae442, #88d448, #2aa8f2)';
 }
 
 function pickBlack() {
   penColor = 'black';
+  document.querySelector('body').style.backgroundImage = 'none';
 }
 
 function pickPencil() {
   penColor = 'pencil';
+  document.querySelector('body').style.backgroundImage = 'none';
 }
 
 // Make initial page layout
@@ -82,7 +85,7 @@ function drawing() {
     let hoverCount = 0;
     item.addEventListener('mouseenter', function(e) {
       if (penColor === 'pencil') {
-        
+  
         // Assign black color with rgba(0,0,0,[add 0.1 with each step])
         e.target.style.backgroundColor = `rgba(0, 0, 0, 0.${hoverCount += 1})`;
         if (hoverCount >= 9) {
