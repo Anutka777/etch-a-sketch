@@ -78,17 +78,16 @@ function reset() {
 function drawing() {
 
   // For pencil-case
-  let hoverCount = 0;
   Array.from(document.getElementsByClassName('grid-item')).forEach(function(item) {
+    let hoverCount = 0;
     item.addEventListener('mouseenter', function(e) {
       if (penColor === 'pencil') {
-
+        
         // Assign black color with rgba(0,0,0,[add 0.1 with each step])
-        hoverCount += 1;
-        if (hoverCount === 10) {
-          hoverCount = 0;
+        e.target.style.backgroundColor = `rgba(0, 0, 0, 0.${hoverCount += 1})`;
+        if (hoverCount >= 9) {
+          hoverCount --;
         }
-        e.target.style.backgroundColor = `rgba(0, 0, 0, 0.${hoverCount})`;
       } else if (penColor === 'rainbow') {
 
         // Assign random color
