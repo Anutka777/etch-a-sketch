@@ -2,6 +2,12 @@ button {
   font-family: 'Courier New', Courier, monospace;
 }
 
+h2 {
+  padding-top: 2px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 #grid-net {
   display: grid;
   /* grid-template-columns: repeat(16, 1fr);

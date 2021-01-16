@@ -84,24 +84,24 @@ function drawing() {
   Array.from(document.getElementsByClassName('grid-item')).forEach(function(item) {
     let hoverCount = 0;
     item.addEventListener('mouseenter', function(e) {
-      if (penColor === 'pencil') {
-  
-        // Assign black color with rgba(0,0,0,[add 0.1 with each step])
-        e.target.style.backgroundColor = `rgba(0, 0, 0, 0.${hoverCount += 1})`;
-        if (hoverCount >= 9) {
-          hoverCount --;
+      if (e.shiftKey) {
+        if (penColor === 'pencil') {
+    
+          // Assign black color with rgba(0,0,0,[add 0.1 with each step])
+          e.target.style.backgroundColor = `rgba(0, 0, 0, 0.${hoverCount += 1})`;
+          if (hoverCount >= 9) {
+            hoverCount --;
+          }
+        } else if (penColor === 'rainbow') {
+
+          // Assign random color
+          e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+        } else {
+
+          // Assign black color
+          e.target.style.backgroundColor = 'black';
         }
-      } else if (penColor === 'rainbow') {
-
-        // Assign random color
-        e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
-      } else {
-
-        // Assign black color
-        e.target.style.backgroundColor = 'black';
       }
   });
 });
 }
-
-// TODO: Add rgba change only for one grid-item
